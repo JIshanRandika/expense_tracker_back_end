@@ -16,7 +16,8 @@ app.use(bodyPaser.json());
 app.use(cors());
 
 //Routes
-
+const appUserRegisterRouter = require("./routes/registerRouter");
+const appUserLoginRouter = require("./routes/loginRouter");
 const newsRouter = require("./routes/newsRouter");
 const UserRouter = require("./routes/userRouter");
 const authRouter = require("./routes/authRouter");
@@ -30,6 +31,8 @@ mongoose.connect("mongodb+srv://ishan:1998@cluster0.eshgylw.mongodb.net/?retryWr
 app.use('/news', newsRouter);
 app.use('/users', isAuthenticated, UserRouter);
 app.use('/auth', authRouter);
+app.use("/register", appUserRegisterRouter)
+app.use("/login", appUserLoginRouter)
 
 //catching not matching routes
 app.use((request, response, next) => {

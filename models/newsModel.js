@@ -5,7 +5,6 @@ const newsSchema = mongoose.Schema({
     description: { type: String, required: true },
     newsLink: { type: String },
     imageUrl: { type: String, default: "still no image_url" }
-
 });
 
 module.exports = mongoose.model('news', newsSchema);
