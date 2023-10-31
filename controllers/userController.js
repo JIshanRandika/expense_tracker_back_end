@@ -14,7 +14,9 @@ const createUser = async (req, res, next) => {
 
         const user = new User(validated_vals);
         const result = await user.save();
+        console.log(result)
         res.status(200).json(result);
+
 
     } catch (error) {
 

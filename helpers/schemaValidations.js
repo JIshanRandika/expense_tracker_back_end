@@ -7,6 +7,14 @@ const newsSchema = Joi.object({
     imageUrl: Joi.string()
 })
 
+const expensesSchema = Joi.object({
+    amount: Joi.number().required(),
+    email: Joi.string().required(),
+    note: Joi.string().required(),
+    date: Joi.date().required(),
+    category: Joi.string().required(),
+})
+
 const userSchema = Joi.object({
     userName: Joi.string().required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
