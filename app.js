@@ -18,6 +18,7 @@ app.use(cors());
 //Routes
 const appUserRegisterRouter = require("./routes/registerRouter");
 const appUserLoginRouter = require("./routes/loginRouter");
+const appUserLogoutRouter = require("./routes/logoutRouter");
 const newsRouter = require("./routes/newsRouter");
 const UserRouter = require("./routes/userRouter");
 const authRouter = require("./routes/authRouter");
@@ -33,6 +34,7 @@ app.use('/users', isAuthenticated, UserRouter);
 app.use('/auth', authRouter);
 app.use("/register", appUserRegisterRouter)
 app.use("/login", appUserLoginRouter)
+app.use("/logout", appUserLogoutRouter)
 
 //catching not matching routes
 app.use((request, response, next) => {
